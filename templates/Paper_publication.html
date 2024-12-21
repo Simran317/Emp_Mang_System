@@ -1,0 +1,43 @@
+
+{% extends 'emp_base.html' %}
+
+{% block main %}
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom: 2px solid orange">Paper Publications !!!</h5>
+        <div class="container">
+            <form method="POST" enctype="multipart/form-data" action="{% url 'Paper_publication'%}">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <section class="p-1 mb-4">
+                                <select name="paper" class="browser-default custom-select">
+                                <option selected="">Select Your Option</option>
+                                <option value="H-index">H-index</option>
+                                    <option value="Google scholar">Google scholar</option>
+                                      <option value="Scopus">Scopus</option>
+                                    <option value="IEEE">IEEE</option>
+                                    <option value="Other">Other</option>
+                                    </select>
+                                  </section>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Upload File</label>
+                            <input type="file" name="upload" class="form-control" >
+                        </div>
+                    </div>
+                    <input type="submit" value="submit" class="btn btn-primary m-2 px-3">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

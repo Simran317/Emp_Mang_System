@@ -1,0 +1,43 @@
+
+{% extends 'emp_base.html' %}
+
+{% block main %}
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom: 2px solid orange">Achievement !!!</h5>
+        <div class="container">
+            <form method="POST" enctype="multipart/form-data" action="{% url 'achievement' %}">
+                {% csrf_token %}
+                <div class="form-row">
+
+
+                    <div class="col-sm-12">
+
+                        <div class="form-group">
+                            <label>Guest Lecture</label>
+                            <input type="text" name="guest" class="form-control" placeholder="Enter Guest Lecture">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Project Name Development In Industry</label>
+                            <input type="text" name="project" class="form-control" placeholder="Project Name Development In Industry" >
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Upload Your Project </label>
+                            <input type="file" multiple name="upload" class="form-control" >
+                        </div>
+                    </div>
+                    <input type="submit" value="submit" class="btn btn-primary m-2 px-3">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

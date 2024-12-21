@@ -1,0 +1,44 @@
+{% include 'header.html' %}
+
+
+
+<div class="card shadow m-5">
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom: 2px solid orange">Create An Account !!</h5>
+        <div class="container">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Enter Email">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="pwd" class="form-control" placeholder="Enter Password">
+                        </div>
+                    </div>
+
+                </div>
+                <input type="Submit" value="submit" class="btn btn-primary m-2 px-3">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if error == "no"%}
+<script>
+    alert('Logged In successful')
+    window.location = ('{% url 'emp_home' %}')
+</script>
+{% endif %}
+{% if error == "yes"%}
+<script>
+    alert('Invalid Login Try Again....')
+
+</script>
+{% endif %}
